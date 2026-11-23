@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Versões · Hype POP</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<style>
+/* Hype POP · página de versões: o que está na produção, o que está no teste e o que mudou em cada versão */
+:root{--bg:#F2F2F2;--surface:#fff;--ink:#0F0C09;--muted:#6B6259;--line:#E4DED7;--bronze:#A67C52;--bronze-soft:#F1E7DC;
+  --good:#1F7A4D;--good-soft:#E3F2EA;--warn:#B4530F;--warn-soft:#FCEBDD;--code:#F4EFE9}
+@media (prefers-color-scheme:dark){:root{--bg:#0F0C09;--surface:#1A1612;--ink:#F2EDE7;--muted:#A89D91;--line:#2E2822;--bronze:#C39A6E;--bronze-soft:#2B2219;
+  --good:#5BC28D;--good-soft:#14281D;--warn:#F0954F;--warn-soft:#2E1C0F;--code:#241E18}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:28px 16px 64px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.eb{margin:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+h1{margin:0;font-size:clamp(28px,6vw,40px);font-stretch:125%;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.sub{margin:6px 0 0;color:var(--muted);max-width:52ch}
+a{color:inherit}
+.voltar{font-size:13px;font-weight:700;color:var(--muted);text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:var(--surface)}
+.amb{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:12px}
+.env{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;position:relative;overflow:hidden}
+.env::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--c)}
+.env.prod{--c:var(--good)} .env.teste{--c:var(--warn)}
+.env .k{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.env .k{flex-wrap:wrap} .env .k > :last-child{text-transform:none;letter-spacing:0;font-weight:600;font-size:12.5px}
+.env .v{font-size:44px;font-weight:800;font-stretch:125%;letter-spacing:-.02em;line-height:1.1;margin:6px 0 2px}
+.env .t{font-weight:700}
+.env .m{color:var(--muted);font-size:13px;margin-top:6px}
+.env .m a{color:var(--muted)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
+.resumo{background:var(--bronze-soft);border-radius:14px;padding:12px 16px;margin:0 0 26px;font-size:14px}
+.resumo b{font-weight:800}
+h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.lista{display:flex;flex-direction:column;gap:10px}
+.ver{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.ver.so-teste{border-color:var(--warn);box-shadow:0 0 0 1px var(--warn) inset}
+.ver-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ver-n{font-size:20px;font-weight:800;font-stretch:125%;min-width:52px}
+.ver-t{font-weight:700;font-size:16px;flex:1 1 220px}
+.ver-d{color:var(--muted);font-size:13px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 0}
+.chip{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:999px;background:var(--code);color:var(--muted)}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.warn{background:var(--warn-soft);color:var(--warn)} .chip.acc{background:var(--bronze-soft);color:var(--bronze)}
+.ver ul{margin:10px 0 0;padding-left:18px} .ver li{margin:4px 0}
+.ver li::marker{color:var(--bronze)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--code);padding:1px 5px;border-radius:5px}
+.aviso{color:var(--muted);font-size:13px}
+.erro{background:var(--warn-soft);color:var(--warn);border-radius:12px;padding:10px 14px;font-size:13px;margin-bottom:12px}
+footer{margin-top:28px;color:var(--muted);font-size:12.5px}
+.sk{height:132px;border-radius:18px;background:linear-gradient(90deg,var(--surface),var(--line),var(--surface));background-size:200% 100%;animation:sk 1.2s infinite linear}
+@keyframes sk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.sk{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><p class="eb">Hype POP</p><h1>Versões</h1>
+      <p class="sub">O que está no app da equipe (produção), o que está sendo testado (teste) e o que mudou em cada versão.</p></div>
+    <a class="voltar" href="./">← Voltar ao app</a>
+  </header>
+  <div id="conteudo"><div class="amb"><div class="sk"></div><div class="sk"></div></div></div>
+  <footer>Cada versão passa primeiro pelo teste (teste.pop.hypebarbearia.com) e, depois de aprovada, vai para a produção (pop.hypebarbearia.com). Esta página lê a ficha publicada em cada um dos dois sites.</footer>
+</div>
+<script>
+(() => {
+  const SITES = {producao:'https://pop.hypebarbearia.com', teste:'https://teste.pop.hypebarbearia.com'};
+  const REPO = 'https://github.com/hype-barbearia/pop';
+  const FICHA_DESDE = 'v1.7'; // versões anteriores foram publicadas sem a ficha versao.json
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;'}[c]));
+  const md = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+  const num = v => (v || 'v0.0').slice(1).split('.').map(Number);
+  const cmp = (a, b) => { const [x1, y1] = num(a), [x2, y2] = num(b); return x1 - x2 || y1 - y2; };
+  const dataBR = iso => iso ? iso.slice(0, 10).split('-').reverse().join('/') : '';
+  const quando = iso => { if (!iso) return ''; const d = new Date(iso);
+    return d.toLocaleString('pt-BR', {timeZone:'America/Recife', day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit'}); };
+
+  const ler = async amb => {
+    // o próprio site lê a ficha local; o outro, pelo endereço público
+    const aqui = location.origin === SITES[amb];
+    const url = (aqui ? '.' : SITES[amb]) + '/versao.json?t=' + Date.now();
+    try { const r = await fetch(url, {cache:'no-store'}); if (!r.ok) return {erro:r.status}; return await r.json(); }
+    catch (e) { return {erro:'rede'}; }
+  };
+
+  function cartao(amb, f, hist){
+    const nome = amb === 'producao' ? 'Produção' : 'Teste', site = SITES[amb].replace('https://', '');
+    if (f.semFicha) return `<div class="env ${amb === 'producao' ? 'prod' : 'teste'}"><div class="k"><span><i class="dot"></i>${nome}</span><span>${site}</span></div>
+      <div class="v">${esc(f.versao || '—')}</div><div class="t">${esc(hist.find(h => h.versao === f.versao)?.titulo || 'versão anterior')}</div>
+      <div class="m">${f.versao ? 'Publicada antes das fichas de versão (deduzida pelo histórico).' : 'Não foi possível ler a ficha deste site.'}</div></div>`;
+    const h = hist.find(x => x.versao === f.versao);
+    return `<div class="env ${amb === 'producao' ? 'prod' : 'teste'}"><div class="k"><span><i class="dot"></i>${nome}</span><a href="${SITES[amb]}">${site}</a></div>
+      <div class="v">${esc(f.versao)}</div><div class="t">${esc(h?.titulo || f.mensagem || '')}</div>
+      <div class="m">Publicada em ${esc(quando(f.publicado_em))} · <a href="${REPO}/commit/${esc(f.commit)}" target="_blank" rel="noopener">commit ${esc(f.commit_curto)}</a></div></div>`;
+  }
+
+  async function montar(){
+    const [p, t] = await Promise.all([ler('producao'), ler('teste')]);
+    const hist = (t.historico && (!p.historico || t.historico.length >= p.historico.length) ? t.historico : p.historico) || [];
+    // produção publicada antes da v1.7 não tem ficha: vale a versão imediatamente anterior a FICHA_DESDE
+    const prod = p.erro ? {semFicha:true, versao:p.erro === 404 ? (hist.find(h => cmp(h.versao, FICHA_DESDE) < 0)?.versao || null) : null} : p;
+    const tes = t.erro ? {semFicha:true, versao:null} : t;
+    const vp = prod.versao, vt = tes.versao;
+    const aFrente = vp && vt ? hist.filter(h => cmp(h.versao, vp) > 0 && cmp(h.versao, vt) <= 0) : [];
+    const resumo = !vp || !vt ? 'Não foi possível comparar os dois ambientes agora. Tente de novo em instantes.'
+      : cmp(vt, vp) === 0 ? `<b>Teste e produção estão iguais</b> (${esc(vp)}). Nada esperando aprovação.`
+      : cmp(vt, vp) > 0 ? `<b>${aFrente.length} ${aFrente.length === 1 ? 'versão' : 'versões'} no teste esperando aprovação</b> (${aFrente.map(h => esc(h.versao)).join(', ')}). A equipe ainda usa a ${esc(vp)}.`
+      : `A produção (${esc(vp)}) está à frente do teste (${esc(vt)}): publique a branch teste para igualar.`;
+    const lista = hist.map(h => {
+      const naProd = vp && cmp(h.versao, vp) <= 0, noTeste = vt && cmp(h.versao, vt) <= 0;
+      const chips = [
+        naProd ? `<span class="chip good">${h.versao === vp ? 'Atual na produção' : 'Na produção'}</span>` : '',
+        !naProd && noTeste ? `<span class="chip warn">${h.versao === vt ? 'Atual no teste' : 'No teste'} · aguardando aprovação</span>` : '',
+        !naProd && !noTeste ? '<span class="chip">Ainda não publicada</span>' : '',
+        h.banco ? `<span class="chip acc">Banco: ${esc(h.banco)}</span>` : '',
+        naProd ? `<a class="chip" href="${REPO}/tree/${esc(h.versao)}" target="_blank" rel="noopener">Código da ${esc(h.versao)}</a>` : ''].join('');
+      return `<article class="ver ${!naProd && noTeste ? 'so-teste' : ''}"><div class="ver-h"><span class="ver-n">${esc(h.versao)}</span><span class="ver-t">${md(h.titulo)}</span><span class="ver-d">${dataBR(h.data)}</span></div>
+        <div class="chips">${chips}</div><ul>${h.itens.map(i => `<li>${md(i)}</li>`).join('')}</ul></article>`;
+    }).join('');
+    $('#conteudo').innerHTML = `${p.erro && p.erro !== 404 || t.erro ? `<div class="erro">Não consegui ler ${[p.erro && p.erro !== 404 ? 'a produção' : '', t.erro ? 'o teste' : ''].filter(Boolean).join(' nem ')}. Confira a internet e recarregue a página.</div>` : ''}
+      <div class="amb">${cartao('producao', prod, hist)}${cartao('teste', tes, hist)}</div>
+      <p class="resumo">${resumo}</p>
+      <h2>Histórico</h2><div class="lista">${lista || '<p class="aviso">Histórico indisponível.</p>'}</div>`;
+  }
+  montar();
+})();
+</script>
+</body>
+</html>

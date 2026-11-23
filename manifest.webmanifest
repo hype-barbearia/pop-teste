@@ -1,0 +1,16 @@
+{
+  "name": "Hype POP · TESTE",
+  "short_name": "POP Teste",
+  "description": "Procedimentos e checklists da Hype Barbearia",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0F0C09",
+  "theme_color": "#0F0C09",
+  "lang": "pt-BR",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-180.png", "sizes": "180x180", "type": "image/png"}
+  ]
+}

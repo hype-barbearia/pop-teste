@@ -1,0 +1,103 @@
+{
+ "ambiente": "teste",
+ "versao": "v1.7",
+ "commit": "5a3b60c0c4b3897eda9e7ee3c70269cbca5a57e1",
+ "commit_curto": "5a3b60c",
+ "mensagem": "v1.7 · Página de versões: produção e teste lado a lado, com as melhorias de cada versão",
+ "publicado_em": "2026-11-23T17:03:47.325Z",
+ "historico": [
+  {
+   "versao": "v1.7",
+   "data": "2026-11-23",
+   "titulo": "Página de versões",
+   "banco": null,
+   "itens": [
+    "Página /versoes.html em cada site: mostra a versão que está na produção e a que está no teste, e as melhorias de cada versão, marcando o que já foi para a equipe e o que ainda está só no teste.",
+    "Cada publicação grava a ficha da versão (número, commit, data); a produção ganha a etiqueta `vX.Y` no GitHub.",
+    "README: o que conferir no site de teste antes de promover para a produção."
+   ]
+  },
+  {
+   "versao": "v1.6",
+   "data": "2026-11-19",
+   "titulo": "Ambiente de teste e versões",
+   "banco": "migração 025",
+   "itens": [
+    "Ambiente de teste em teste.pop.hypebarbearia.com, com banco próprio (\"Hype POP Teste\") montado pelas migrações e comparado com a produção objeto por objeto.",
+    "Branch `teste` publica no teste; `main` publica na produção e cria uma tag `producao-…` por versão.",
+    "Migração 025: 7 funções da produção que não estavam nas migrações agora estão; envio de notificações com endereço do projeto configurável."
+   ]
+  },
+  {
+   "versao": "v1.5",
+   "data": "2026-11-19",
+   "titulo": "Tipos de atividade e cultura",
+   "banco": "migração 024",
+   "itens": [
+    "Tipos separados na Rotina: checklist, ronda, reunião, lembrete, instrução e cultura, com um quadro explicando cada um.",
+    "Reunião (gestão, alinhamento, técnicas, one-on-ones): \"Aconteceu / Não aconteceu\" e campo de combinados e presença. No one-on-one, o resumo de cultura da semana ao lado de cada nome.",
+    "Instrução (\"como fazer\") em cada item, editada no checklist; a pessoa lê e não marca.",
+    "Cultura por exceção: padrões de comportamento em Informações da casa; a gerente e os sócios registram só o destaque ou o desvio, por pessoa. A pessoa vê os próprios registros no Perfil. \"Sorriso e gentileza\" e \"Postura\" saíram da ronda.",
+    "Rotina: toda linha da tabela abre o editor completo ali mesmo.",
+    "Semana de aprendizado até 28/11."
+   ]
+  },
+  {
+   "versao": "v1.4",
+   "data": "2026-11-17",
+   "titulo": "Desempenho e manutenção",
+   "banco": "migração 023",
+   "itens": [
+    "Carregamento em duas partes: configuração relida no máximo a cada 60 s, histórico uma vez por dia; atualizações em tempo real com 18 consultas em vez de 33.",
+    "Ações das ocorrências limitadas aos mesmos 30 dias das ocorrências.",
+    "Banco: índices, regras de acesso calculadas uma vez por consulta, limpeza diária de registros técnicos.",
+    "CSS sem as 240 regras que nenhuma tela usava (86 KB → 69 KB).",
+    "Publicação: versão da cópia offline automática e conferência das listas de arquivos.",
+    "Documentação do banco em `supabase/README.md`."
+   ]
+  },
+  {
+   "versao": "v1.3",
+   "data": "2026-11-17",
+   "titulo": "Gestão e notas fiscais",
+   "banco": "migrações 020 a 022",
+   "itens": [
+    "Acesso DEV (`sistemas@`): ver como cada pessoa, diagnóstico, registro de acessos, liga/desliga de recursos e simulador.",
+    "Painel de gestão redesenhado; tema claro, escuro ou automático.",
+    "Notas fiscais em três passos, na gestão e no Perfil do barbeiro; lembrete enviado pela gestão.",
+    "Login aceita o código do e-mail de qualquer tamanho."
+   ]
+  },
+  {
+   "versao": "v1.2",
+   "data": "2026-11-17",
+   "titulo": "Lançamento da operação",
+   "banco": "migrações 014 a 019",
+   "itens": [
+    "Tudo editável pelo Victor; nova experiência visual e responsiva.",
+    "Semana de aprendizado, pauta do alinhamento, reposição, registro de cliente, treino, conferência em lote, uso sem internet, aviso de privacidade.",
+    "Modo TV para a reunião; publicação só depois dos testes."
+   ]
+  },
+  {
+   "versao": "v1.1",
+   "data": "2026-11-16",
+   "titulo": "Operação real",
+   "banco": "migrações 007 a 013",
+   "itens": [
+    "Folgas, sábado, ausências, revezamentos, notificações no celular.",
+    "Perfil do colaborador e notas fiscais quinzenais do Salão-Parceiro.",
+    "Início da operação em 17/11/2026, 09:00."
+   ]
+  },
+  {
+   "versao": "v1.0",
+   "data": "2026-11-13",
+   "titulo": "Primeira versão",
+   "banco": "migrações 001 a 006",
+   "itens": [
+    "App de POPs e checklists ligado ao Supabase, domínio pop.hypebarbearia.com e e-mail de acesso com a identidade da Hype."
+   ]
+  }
+ ]
+}
